@@ -1,1 +1,10 @@
+services:
+  - type: cron
+    name: gamermarkt-checker
+    env: python
+    schedule: "*/5 * * * *"  # Her 5 dakikada bir
+    buildCommand: |
+      pip install -r requirements.txt
+      playwright install
+    startCommand: python GamerMarktBot.py
 
